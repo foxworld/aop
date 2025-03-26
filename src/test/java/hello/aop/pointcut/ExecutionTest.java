@@ -8,6 +8,8 @@ import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 
 import java.lang.reflect.Method;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Slf4j
 public class ExecutionTest {
 
@@ -22,6 +24,13 @@ public class ExecutionTest {
     @Test
     void printMethod() {
         log.info("helloMethod={}", helloMethod);
+    }
+
+    @Test
+    void exactMatch() {
+        //public java.lang.String hello.aop.member.MemberServiceImpl.hello(java.lang.String)
+        pointcut.setExpression("execution(public String hello.aop.member.MemberServiceImpl.hello(String))");
+        assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
     }
 
 
