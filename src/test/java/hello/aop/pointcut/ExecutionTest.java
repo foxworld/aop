@@ -107,6 +107,8 @@ public class ExecutionTest {
         assertThat(pointcut.matches(internalMethod, MemberServiceImpl.class)).isFalse(); //자식클래스에만있는건은 안됨
     }
 
+
+
     // String 타입의 파라미터  허용
     @Test
     void argsMatch() {
