@@ -37,7 +37,7 @@ public class AopTest {
         orderService.orderItem("itemA");
     }
 
-    @org.junit.Test
+    @Test
     void exception() {
         Assertions.assertThatThrownBy(() -> orderService.orderItem("ex"))
                 .isInstanceOf(IllegalStateException.class);
